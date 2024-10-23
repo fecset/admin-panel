@@ -1,5 +1,6 @@
 async function loadData() {
     const response = await fetch('db/barbershop_db.json');
+    
     return await response.json();
 }
 
