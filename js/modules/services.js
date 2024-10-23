@@ -251,7 +251,7 @@ export function initServices() {
     });
 
     document.getElementById('newServicePrice').addEventListener('input', function() {
-        const maxValue = 1000000;
+        const maxValue = 100000;
         const priceError = document.getElementById('priceError');
         
         if (this.value > maxValue) {
