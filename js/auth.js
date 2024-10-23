@@ -1,8 +1,5 @@
 async function loadData() {
     const response = await fetch('db/barbershop_db.json');
-    if (!response.ok) {
-        throw new Error('Ошибка загрузки данных');
-    }
     return await response.json();
 }
 
