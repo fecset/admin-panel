@@ -192,7 +192,6 @@ export function initServices() {
         document.getElementById('addServiceModal').style.display = 'none';
     });
     
-    // Обработчик кнопки "Сохранить услугу"
     document.getElementById('saveNewService').addEventListener('click', function() {
         const newServiceName = document.getElementById('newServiceName').value.trim();
         const newServicePriceInput = document.getElementById('newServicePrice');
@@ -200,11 +199,9 @@ export function initServices() {
         const priceError = document.getElementById('priceError');
         const nameError = document.getElementById('nameError');
 
-        // Очищаем предыдущие ошибки
         priceError.textContent = '';
         nameError.textContent = '';
 
-        // Валидация имени услуги (не должно содержать цифры)
         if (!newServiceName) {
             nameError.textContent = 'Введите название услуги.';
             return;
@@ -254,9 +251,17 @@ export function initServices() {
     });
 
     document.getElementById('newServicePrice').addEventListener('input', function() {
+        const maxValue = 1000000;
         const priceError = document.getElementById('priceError');
-        priceError.textContent = '';
-    
+        
+        if (this.value > maxValue) {
+            priceError.textContent = `Цена не может превышать ${maxValue} ₽.`;
+            this.value = maxValue; 
+            console.log(this.value);
+        } else {
+            priceError.textContent = '';
+        }
+
         if (this.value < 0) {
             priceError.textContent = 'Цена не может быть отрицательной.';
             this.value = '';

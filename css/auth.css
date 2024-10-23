@@ -149,7 +149,7 @@ body {
     border: none;
     background-color: transparent;
     font-size: 24px;
-    width: 100%; /* Поле ввода занимает все доступное пространство */
+    width: 100%; 
 }
 
 .auth_item input:focus {

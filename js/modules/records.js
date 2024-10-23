@@ -73,7 +73,6 @@ export function initRecords() {
                 recordsTableBody.appendChild(row);
             });
 
-            // Привязываем обработчики событий после добавления строк
             attachEventHandlers();
         } catch (error) {
             console.error(error);
@@ -81,7 +80,6 @@ export function initRecords() {
     }
 
     function attachEventHandlers() {
-        // Удаление строк
         document.querySelectorAll('.record-button--delete').forEach(button => {
             button.addEventListener('click', function() {
                 const row = this.closest('tr'); 
@@ -89,7 +87,6 @@ export function initRecords() {
             });
         });
 
-        // Подтверждение записей
         document.querySelectorAll('.record-button--confirm').forEach(button => {
             button.addEventListener('click', function() {
                 const row = this.closest('tr');
@@ -109,8 +106,7 @@ export function initRecords() {
                 rejectButton.classList.remove('inactive');
             });
         });
-        
-        // Отклонение записей
+
         document.querySelectorAll('.record-button--reject').forEach(button => {
             button.addEventListener('click', function() {
                 const row = this.closest('tr');
@@ -131,7 +127,6 @@ export function initRecords() {
             });
         });
     
-        // Подробности записи
         document.querySelectorAll('.record-button--info').forEach(button => {
             button.addEventListener('click', function() {
                 const id = this.getAttribute('data-id');
@@ -143,8 +138,7 @@ export function initRecords() {
                 const servicePrice = this.getAttribute('data-service-price');
                 const date = this.getAttribute('data-date');
                 const status = this.getAttribute('data-status');
-        
-                // Заполняем модальное окно данными
+
                 document.getElementById('detailId').textContent = id;
                 document.getElementById('detailClientName').textContent = clientName;
                 document.getElementById('detailPhone').textContent = phone;
@@ -157,25 +151,21 @@ export function initRecords() {
                 const statusElement = document.getElementById('detailStatus');
                 statusElement.textContent = status;
         
-                // Устанавливаем цвет текста в зависимости от статуса
                 if (status === 'Подтверждена') {
-                    statusElement.style.color = '#037E36'; // Зеленый цвет для подтвержденного статуса
+                    statusElement.style.color = '#037E36';
                     statusElement.style.fontWeight = 'bold';
                 } else if (status === 'Ожидает подтверждения') {
-                    statusElement.style.color = '#E09100'; // Оранжевый цвет для ожидающего подтверждения
+                    statusElement.style.color = '#E09100';
                     statusElement.style.fontWeight = 'bold';
                 } else if (status === 'Отклонена') {
-                    statusElement.style.color = '#8E2E2E'; // Красный цвет для отклоненного статуса
+                    statusElement.style.color = '#8E2E2E';
                     statusElement.style.fontWeight = 'bold';
                 }
-        
-                // Показываем модальное окно
+    
                 document.getElementById('detailsModal').style.display = 'flex';
             });
         });
 
-
-        // Закрытие модального окна подробностей
         document.getElementById('closeDetailsModal').addEventListener('click', function() {
             document.getElementById('detailsModal').style.display = 'none';
         });

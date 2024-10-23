@@ -198,7 +198,7 @@
                     </div>
 
                     <label for="newServiceName">Название:</label>
-                    <input type="text" id="newServiceName" class="newService_input" required>
+                    <input type="text" id="newServiceName" class="newService_input" required maxlength="30">
                     <span id="nameError" class="error-message"></span>
                     <br>
                     <label for="newServicePrice">Цена:</label>   
@@ -237,7 +237,7 @@
             </section>
             
 
-            <!-- Модальное окно для мастеров -->
+            <!-- Модальное окно настройки мастеров -->
             <div id="masterSettingsModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header"> 
@@ -271,7 +271,7 @@
             </div>
         </main>
 
-        <!-- Модальное окно для добавления мастера -->
+        <!-- Модальное окно добавления мастера -->
         <div id="addMasterModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header"> 
@@ -279,15 +279,15 @@
                     <img class="close" id="closeAddMasterModal" src="img/close.svg"></img> 
                 </div>
                 <label for="newMasterName">Имя:</label>
-                <input type="text" id="newMasterName" class="newMaster_input" required>
+                <input type="text" id="newMasterName" class="newMaster_input" required maxlength="30">
                 <span id="masterNameError" class="error-message"></span>
                 <br>
                 <label for="newMasterSpecialization">Специализация:</label>
-                <input type="text" id="newMasterSpecialization" class="newMaster_input" required>
+                <input type="text" id="newMasterSpecialization" class="newMaster_input" required maxlength="30"> 
                 <span id="specializationError" class="error-message"></span>
                 <br>
                 <label for="newMasterSchedule">График:</label>
-                <input type="text" id="newMasterSchedule" class="newMaster_input" required>
+                <input type="text" id="newMasterSchedule" class="newMaster_input" required maxlength="25">
                 <span id="scheduleError" class="error-message"></span>
                 
                 <br>

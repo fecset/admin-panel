@@ -123,7 +123,7 @@ export function initMasters() {
         addMasterModal.style.display = 'none';
     });
 
-    // Обработчик кнопки "Сохранить мастера"
+    // Валидация
     document.getElementById('saveNewMaster').addEventListener('click', function() {
         const newMasterName = document.getElementById('newMasterName').value.trim();
         const newMasterSpecialization = document.getElementById('newMasterSpecialization').value.trim();
@@ -133,12 +133,10 @@ export function initMasters() {
         const specializationError = document.getElementById('specializationError');
         const scheduleError = document.getElementById('scheduleError');
 
-        // Очищаем предыдущие ошибки
         nameError.textContent = '';
         specializationError.textContent = '';
         scheduleError.textContent = '';
 
-        // Валидация имени мастера (не должно быть пустым и не должно содержать цифры)
         if (!newMasterName) {
             nameError.textContent = 'Введите имя мастера.';
             return;
@@ -147,7 +145,6 @@ export function initMasters() {
             return;
         }
 
-        // Валидация специализации (не должна быть пустой и не должна содержать цифры)
         if (!newMasterSpecialization) {
             specializationError.textContent = 'Введите специализацию мастера.';
             return;
@@ -156,7 +153,6 @@ export function initMasters() {
             return;
         }
 
-        // Валидация графика работы мастера (просто проверяем, что поле не пустое)
         if (!newMasterSchedule) {
             scheduleError.textContent = 'Введите график работы мастера.';
             return;
@@ -187,33 +183,29 @@ export function initMasters() {
         attachEventHandlers();
     });
 
-    // Валидация ввода только букв для поля "Имя мастера"
     document.getElementById('newMasterName').addEventListener('input', function() {
         const nameError = document.getElementById('nameError');
         const value = this.value;
         if (!/^[a-zA-Zа-яА-Я\s]*$/.test(value)) {
             nameError.textContent = 'Имя мастера должно содержать только буквы и пробелы.';
-            this.value = value.replace(/[^a-zA-Zа-яА-Я\s]/g, ''); // Убираем все недопустимые символы
+            this.value = value.replace(/[^a-zA-Zа-яА-Я\s]/g, '');
         } else {
             nameError.textContent = '';
         }
     });
 
-    // Валидация ввода только букв для поля "Специализация мастера"
     document.getElementById('newMasterSpecialization').addEventListener('input', function() {
         const specializationError = document.getElementById('specializationError');
         const value = this.value;
         if (!/^[a-zA-Zа-яА-Я\s]*$/.test(value)) {
             specializationError.textContent = 'Специализация должна содержать только буквы и пробелы.';
-            this.value = value.replace(/[^a-zA-Zа-яА-Я\s]/g, ''); // Убираем все недопустимые символы
+            this.value = value.replace(/[^a-zA-Zа-яА-Я\s]/g, '');
         } else {
             specializationError.textContent = '';
         }
     });
 
-    
 
-    // Валидация
     const masterNameField = document.getElementById('masterName');
     const masterSpecializationField = document.getElementById('masterSpecialization');
     const masterScheduleField = document.getElementById('masterSchedule');
